@@ -1,7 +1,7 @@
 const playerInfo = {
   player1: { score: 0, finalScore: 0 },
   player2: { score: 0, finalScore: 0 },
-  who: true,
+  who: false,
 };
 const player1 = document.querySelector(".player1 span");
 const player2 = document.querySelector(".player2 span");
@@ -21,15 +21,25 @@ const randomDiceRoll = () => {
 const playerTransfor = (playerInfoWho, playerType) => {
   playerInfo[`${playerType}`].score = 0;
   playerInfo.who = playerInfoWho;
-  active2.innerHTML = "*";
-  active1.innerHTML = "&#160;";
+  if (playerInfoWho) {
+    active2.innerHTML = "*";
+    active1.innerHTML = "&#160;";
+  } else {
+    active1.innerHTML = "*";
+    active2.innerHTML = "&#160;";
+  }
 };
 const doneCode = (playerType, playerInfowho) => {
   playerInfo[`${playerType}`].finalScore += playerInfo[`${playerType}`].score;
   playerInfo.player1.score = 0;
   playerInfo.who = playerInfowho;
-  active2.innerHTML = "*";
-  active1.innerHTML = "&#160;";
+  if (!playerInfo.who) {
+    active1.innerHTML = "*";
+    active2.innerHTML = "&#160;";
+  } else {
+    active2.innerHTML = "*";
+    active1.innerHTML = "&#160;";
+  }
 };
 rollBtn.addEventListener("click", () => {
   if (parseInt(searchInputArea.value) > 0) {
