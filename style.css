@@ -1,0 +1,58 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    margin-top:3rem;
+    background-color: rgba(250, 235, 215, 0.507);
+    height: 100vh;
+}
+.game{
+padding:2rem 1rem;
+background-color: rgba(255, 255, 255, 0.473);
+height:30%;
+width: 30%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
+
+}
+.game-upper
+{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+.player1-info p,.player2-info p{
+    margin-bottom: 0.4rem;
+}
+.game-lower{
+    align-self: center;
+}
+.dice-roll{
+    align-self: center;
+}
+.game-lower button{
+    margin-right: 1rem;
+    padding:0.3rem 1rem;
+}
+.inputarea-container
+{
+    text-align: center;
+
+}
+.inputarea-container input
+{
+    padding:0.3rem 0.4rem;
+    
+}
+.gamewinner-declare p{
+    text-align: center;
+}
+.active1,.active2{
+    margin-bottom: 1rem;
+    text-align: center;
+}
