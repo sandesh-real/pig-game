@@ -21,7 +21,7 @@ const randomDiceRoll = () => {
 const playerTransfor = (playerInfoWho, playerType) => {
   playerInfo[`${playerType}`].score = 0;
   playerInfo.who = playerInfoWho;
-  if (playerInfoWho) {
+  if (playerInfo.who) {
     active2.innerHTML = "*";
     active1.innerHTML = "&#160;";
   } else {
@@ -31,7 +31,7 @@ const playerTransfor = (playerInfoWho, playerType) => {
 };
 const doneCode = (playerType, playerInfowho) => {
   playerInfo[`${playerType}`].finalScore += playerInfo[`${playerType}`].score;
-  playerInfo.player1.score = 0;
+  playerInfo[`${playerType}`].score = 0;
   playerInfo.who = playerInfowho;
   if (!playerInfo.who) {
     active1.innerHTML = "*";
@@ -47,12 +47,12 @@ rollBtn.addEventListener("click", () => {
 
     if (diceRollNo === 6) {
       if (playerInfo.who) {
-        playerTransfor(false, "player1");
+        playerTransfor(false, "player2");
       } else {
-        playerTransfor(true, "player2");
+        playerTransfor(true, "player1");
       }
     } else {
-      if (playerInfo.who) {
+      if (!playerInfo.who) {
         playerInfo.player1.score += diceRollNo;
       } else {
         playerInfo.player2.score += diceRollNo;
@@ -69,9 +69,9 @@ doneBtn.addEventListener("click", () => {
   if (parseInt(searchInputArea.value) > 0) {
     diceNo.innerHTML = 0;
     if (playerInfo.who) {
-      doneCode("player1", false);
+      doneCode("player2", false);
     } else {
-      doneCode("player2", true);
+      doneCode("player1", true);
     }
     player1FinaScore.innerHTML = playerInfo.player1.finalScore;
     player2FinalScore.innerHTML = playerInfo.player2.finalScore;
